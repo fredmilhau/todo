@@ -4,7 +4,6 @@ import {TaskModel} from '../models/task.model';
 
 
 export function tasksReducer(state: TasksState, action: any) {
-
   switch (action.type) {
     case TasksActionTypes.LOAD: {
       return action.payload;

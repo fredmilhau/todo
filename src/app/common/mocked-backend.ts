@@ -12,7 +12,11 @@ export class MockedBackend extends HttpXhrBackend {
     if (request.url.endsWith('/api/tasks') && request.method === 'GET') {
       console.log('MockedBackend: (' + request.url + ')');
       return Observable.of(new HttpResponse({status: 200, body: TASKS}));
-
+    } else if (request.url.match(/\/api\/tasks\/\d+$/) && request.method === 'PUT') {
+      const urlParts = request.url.split('/');
+      const id = parseInt(urlParts[urlParts.length - 1], 10);
+      console.log('MockedBackend: update task id=' + id + ' (' + request.url + ')');
+      return Observable.of(new HttpResponse({status: 200, body: request.body}));
     } else {
       console.log('MockedBackend: wrong request (' + request.url + ')');
       return Observable.of(new HttpResponse({status: 400}));

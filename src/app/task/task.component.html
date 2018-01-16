@@ -1,4 +1,4 @@
 <div>
-  <div class="title">{{ taskModel.title }}</div>
-  <span class="state">{{ taskModel.completed ? '[done]' : '[todo]' }}</span>
+  <mat-checkbox [(ngModel)]="checked" (change)="changeState()"></mat-checkbox>
+  <span class="title" [class.completed]="taskModel.completed">{{ taskModel.title }}</span>
 </div>

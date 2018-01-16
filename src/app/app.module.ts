@@ -1,7 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {AppComponent} from './app.component';
 import {TasksComponent} from './tasks/tasks.component';
@@ -13,7 +15,6 @@ import {MockedBackend} from './common/mocked-backend';
 import {TaskComponent} from './task/task.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +23,12 @@ import {TaskComponent} from './task/task.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     StoreModule.forRoot({tasksState: tasksReducer}),
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [
     TaskService,

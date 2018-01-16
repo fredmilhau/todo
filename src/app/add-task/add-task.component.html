@@ -1,0 +1,13 @@
+<div>
+  <form class="example-form" (submit)="addTask()" ngNativeValidate>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="title" [(ngModel)]="title" name="title" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="description" [(ngModel)]="description" name="description">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Add</button>
+  </form>
+</div>

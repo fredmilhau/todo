@@ -1,4 +1,4 @@
-import {TasksActions, TasksActionTypes} from './tasks.action';
+import {TasksActionTypes} from './tasks.action';
 import {TasksState} from './tasks.store';
 import {TaskModel} from '../models/task.model';
 
@@ -12,12 +12,13 @@ export function tasksReducer(state: TasksState, action: any) {
     case TasksActionTypes.UPDATE_TASK: {
       return update(state, action.payload);
     }
+    case TasksActionTypes.CREATE_TASK: {
+      return {...state, tasks: [action.payload, ...state.tasks]};
+    }
     default: {
       return state;
     }
   }
-
-
 }
 
 

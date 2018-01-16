@@ -1,15 +1,22 @@
 <mat-card>
   <h4>Detail</h4>
-  <div class="row">
-    <span>Title</span>
-    <span>{{ taskModel.title }}</span>
-  </div>
-  <div class="row">
-    <span>Description</span>
-    <span>{{ taskModel.description }}</span>
-  </div>
-  <div class="row">
-    <span>State</span>
-    <span>{{ taskModel.completed ? 'completed' : 'todo' }}</span>
+  <div id="unknownTask" [hidden]="!unknown">Error: The requested task is unknown.</div>
+  <div id="taskDetail" [hidden]="unknown">
+    <div class="row">
+      <span>Id</span>
+      <span>{{ taskModel.id }}</span>
+    </div>
+    <div class="row">
+      <span>Title</span>
+      <span>{{ taskModel.title }}</span>
+    </div>
+    <div class="row">
+      <span>Description</span>
+      <span>{{ taskModel.description }}</span>
+    </div>
+    <div class="row">
+      <span>State</span>
+      <span>{{ taskModel.completed ? 'completed' : 'todo' }}</span>
+    </div>
   </div>
 </mat-card>

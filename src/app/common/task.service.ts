@@ -4,7 +4,7 @@ import 'rxjs/add/observable/of';
 import {HttpClient} from '@angular/common/http';
 import {Store} from '@ngrx/store';
 import {AppState} from './store/app.store';
-import {LoadTasks, UpdateTask} from './store/tasks.action';
+import {CreateTask, LoadTasks, UpdateTask} from './store/tasks.action';
 
 
 @Injectable()
@@ -28,14 +28,36 @@ export class TaskService {
   getTask(id: number): TaskModel {
     let task: TaskModel;
     this.store.select('tasksState').subscribe(state => {
-
-      if (!state) {
-        this.loadTasks();
-      }
-
       task = state.tasks.find(x => x.id === id);
     });
     return task;
+  }
+
+  createTask(title: string, description: string) {
+
+    const task: TaskModel = {
+      id: this.getNextID(),
+      completed: false,
+      title: title,
+      description: description
+    };
+
+    this.http.post<TaskModel>(`${this.BASE_URL}`, task)
+      .subscribe((newTask) => this.store.dispatch(new CreateTask(newTask)));
+  }
+
+  /*
+   * this should be done server side, but convenient for the purpose a the exercise
+   */
+  getNextID(): number {
+
+    let idMax: number;
+
+    this.store.select('tasksState')
+      .subscribe(state => idMax = Math.max(...state.tasks.map(x => x.id))
+      );
+
+    return idMax + 1;
   }
 
 }

@@ -11,6 +11,7 @@ import {TaskComponent} from '../task/task.component';
 import {MatCardModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
@@ -35,7 +36,8 @@ describe('TasksComponent', () => {
         FormsModule,
         StoreModule.forRoot({tasksState: tasksReducer}),
         MatCardModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        RouterTestingModule
       ],
       providers: [
         {provide: TaskService, useClass: MockTaskService}
@@ -60,11 +62,6 @@ describe('TasksComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should call TaskService to load data', () => {
-    expect(taskService.loadTasks).toHaveBeenCalled();
-  });
-
 
   it('should display a list of items after the data is loaded', () => {
 

@@ -25,4 +25,17 @@ export class TaskService {
       .subscribe(() => this.store.dispatch(new UpdateTask(taskModel)));
   }
 
+  getTask(id: number): TaskModel {
+    let task: TaskModel;
+    this.store.select('tasksState').subscribe(state => {
+
+      if (!state) {
+        this.loadTasks();
+      }
+
+      task = state.tasks.find(x => x.id === id);
+    });
+    return task;
+  }
+
 }

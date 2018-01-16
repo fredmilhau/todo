@@ -1,8 +1,10 @@
 import {Action} from '@ngrx/store';
 import {TasksState} from './tasks.store';
+import {TaskModel} from '../models/task.model';
 
 export const TasksActionTypes = {
-  LOAD: '[tasks] Load'
+  LOAD: '[tasks] Load',
+  UPDATE_TASK: '[tasks] update task'
 };
 
 export class LoadTasks implements Action {
@@ -12,4 +14,13 @@ export class LoadTasks implements Action {
   }
 }
 
-export type TasksActions = LoadTasks;
+export class UpdateTask implements Action {
+  readonly type = TasksActionTypes.UPDATE_TASK;
+
+  constructor(public payload: TaskModel) {
+  }
+}
+
+export type TasksActions = LoadTasks | UpdateTask;
+
+

@@ -9,6 +9,8 @@ import {TaskService} from '../common/task.service';
 import {By} from '@angular/platform-browser';
 import {TaskComponent} from '../task/task.component';
 import {MatCardModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {FormsModule} from '@angular/forms';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
@@ -30,9 +32,10 @@ describe('TasksComponent', () => {
         TaskComponent
       ],
       imports: [
+        FormsModule,
         StoreModule.forRoot({tasksState: tasksReducer}),
-        MatCardModule
-
+        MatCardModule,
+        MatCheckboxModule
       ],
       providers: [
         {provide: TaskService, useClass: MockTaskService}

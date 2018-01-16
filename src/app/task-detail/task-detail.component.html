@@ -1,0 +1,15 @@
+<mat-card>
+  <h4>Detail</h4>
+  <div class="row">
+    <span>Title</span>
+    <span>{{ taskModel.title }}</span>
+  </div>
+  <div class="row">
+    <span>Description</span>
+    <span>{{ taskModel.description }}</span>
+  </div>
+  <div class="row">
+    <span>State</span>
+    <span>{{ taskModel.completed ? 'completed' : 'todo' }}</span>
+  </div>
+</mat-card>

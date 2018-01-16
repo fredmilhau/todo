@@ -1,4 +1,6 @@
 <div>
   <mat-checkbox [(ngModel)]="checked" (change)="changeState()"></mat-checkbox>
-  <span class="title" [class.completed]="taskModel.completed">{{ taskModel.title }}</span>
+  <a mat-button routerLink="/tasks/{{ taskModel.id }}">
+    <span class="title" [class.completed]="taskModel.completed">{{ taskModel.title }}</span>
+  </a>
 </div>

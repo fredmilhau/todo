@@ -1,0 +1,10 @@
+div {
+  background-color: whitesmoke;
+  padding: 0.6em;
+  margin: 4px 0;
+}
+
+div span:first-child {
+  display: inline-block;
+  width: 120px;
+}

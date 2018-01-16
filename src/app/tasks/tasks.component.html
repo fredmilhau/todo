@@ -1,0 +1,5 @@
+<mat-card>
+  <div *ngFor="let task of tasks$ | async">
+    <ta-task [taskModel]="task"></ta-task>
+  </div>
+</mat-card>

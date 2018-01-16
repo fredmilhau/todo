@@ -1,0 +1,6 @@
+:host > div {
+  background-color: whitesmoke;
+  margin: 2px 0;
+  padding: 0.6em;
+  border-left: grey solid 4px;
+}

@@ -59,5 +59,4 @@ export class TaskService {
 
     return idMax + 1;
   }
-
 }

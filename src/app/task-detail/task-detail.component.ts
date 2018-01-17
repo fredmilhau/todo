@@ -10,7 +10,6 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent implements OnInit {
-
   taskModel: TaskModel;
 
   unknown = false;

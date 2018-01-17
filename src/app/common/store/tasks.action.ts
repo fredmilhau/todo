@@ -23,4 +23,3 @@ export class UpdateTask implements Action {
 
 export type TasksActions = LoadTasks | UpdateTask;
 
-

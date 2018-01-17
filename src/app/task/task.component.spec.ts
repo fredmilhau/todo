@@ -5,6 +5,7 @@ import {By} from '@angular/platform-browser';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import {TaskService} from '../common/task.service';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('TaskComponent', () => {
   let component: TaskComponent;
@@ -21,7 +22,8 @@ describe('TaskComponent', () => {
       declarations: [TaskComponent],
       imports: [
         FormsModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        RouterTestingModule
       ],
       providers: [
         {provide: TaskService, useClass: MockTaskService}

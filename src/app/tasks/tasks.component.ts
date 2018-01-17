@@ -16,13 +16,11 @@ export class TasksComponent implements OnInit {
 
   public tasks$: Observable<Array<TaskModel>>;
 
-  constructor(private store: Store<AppState>, private taskService: TaskService) {
+  constructor(private store: Store<AppState>) {
     this.tasks$ = store.select('tasksState').map(tasksState => tasksState.tasks);
   }
 
   ngOnInit() {
-    // load server's data into the store
-    this.taskService.loadTasks();
   }
 
 }

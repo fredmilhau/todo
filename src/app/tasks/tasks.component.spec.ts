@@ -8,10 +8,12 @@ import {LoadTasks} from '../common/store/tasks.action';
 import {TaskService} from '../common/task.service';
 import {By} from '@angular/platform-browser';
 import {TaskComponent} from '../task/task.component';
-import {MatCardModule} from '@angular/material';
+import {MatCardModule, MatInputModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
+import {AddTaskComponent} from '../add-task/add-task.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
@@ -30,14 +32,17 @@ describe('TasksComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         TasksComponent,
-        TaskComponent
+        TaskComponent,
+        AddTaskComponent
       ],
       imports: [
         FormsModule,
         StoreModule.forRoot({tasksState: tasksReducer}),
         MatCardModule,
         MatCheckboxModule,
-        RouterTestingModule
+        RouterTestingModule,
+        MatInputModule,
+        BrowserAnimationsModule
       ],
       providers: [
         {provide: TaskService, useClass: MockTaskService}

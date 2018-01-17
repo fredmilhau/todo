@@ -1,5 +1,6 @@
 <mat-card>
   <h4>List</h4>
+  <ta-add-task></ta-add-task>
   <div *ngFor="let task of tasks$ | async">
     <ta-task [taskModel]="task"></ta-task>
   </div>

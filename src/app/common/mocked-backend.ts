@@ -17,6 +17,9 @@ export class MockedBackend extends HttpXhrBackend {
       const id = parseInt(urlParts[urlParts.length - 1], 10);
       console.log('MockedBackend: update task id=' + id + ' (' + request.url + ')');
       return Observable.of(new HttpResponse({status: 200, body: request.body}));
+    } else if (request.url.endsWith('/api/tasks') && request.method === 'POST') {
+      console.log('MockedBackend: create task (' + request.url + ')');
+      return Observable.of(new HttpResponse({status: 200, body: request.body}));
     } else {
       console.log('MockedBackend: wrong request (' + request.url + ')');
       return Observable.of(new HttpResponse({status: 400}));

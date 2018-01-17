@@ -4,7 +4,8 @@ import {TaskModel} from '../models/task.model';
 
 export const TasksActionTypes = {
   LOAD: '[tasks] Load',
-  UPDATE_TASK: '[tasks] update task'
+  UPDATE_TASK: '[tasks] update task',
+  CREATE_TASK: '[tasks] create task'
 };
 
 export class LoadTasks implements Action {
@@ -21,5 +22,12 @@ export class UpdateTask implements Action {
   }
 }
 
-export type TasksActions = LoadTasks | UpdateTask;
+export class CreateTask implements Action {
+  readonly type = TasksActionTypes.CREATE_TASK;
+
+  constructor(public payload: TaskModel) {
+  }
+}
+
+export type TasksActions = LoadTasks | UpdateTask | CreateTask;
 
